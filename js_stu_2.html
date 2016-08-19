@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>js对象</title>
+<script type="text/javascript">
+//通过原型继承创建一个新对象
+    function inherit(p){
+        if(p==null){
+            throw TypeError();
+        }
+        if(Object.create){
+            return Object.create(p);
+        }
+
+        var t = typeof p;
+        if(t !== "object" && t!== "function"){
+            throw TypeError();
+        }
+        //定义一个空的构造函数
+        function f(){};
+        //将f的原型设置为p
+        f.prototype = p;
+        return new f();
+    }
+
+   function change(o) {
+       o.x = 3;
+   }
+
+window.onload = function (){
+    var ttt = {x:1,y:2};
+    var ggg = {x:1,y:2};
+
+    change(ttt);
+    console.log("ttt.x = " + ttt.x);
+
+    change(inherit(ggg));
+    console.log("ggg.x = " + ggg.x);
+
+
+
+};
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
