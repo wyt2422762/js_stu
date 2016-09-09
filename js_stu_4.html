@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>js函数</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            o.m();
+        }
+
+        var o = {
+            m: function () {
+                var self = this;
+                console.log("m-this = " + (this === o));
+                f();
+
+                function f() {
+                    console.log("f-this = " + (this === o));
+                    console.log("m-self = " + (self === o));
+                }
+            }
+        };
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
