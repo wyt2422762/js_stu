@@ -6,6 +6,10 @@
     <script type="text/javascript">
         window.onload = function () {
             o.m();
+            parameterLength(1,2,3,4);
+
+            function_properties();
+
         }
 
         var o = {
@@ -20,6 +24,19 @@
                 }
             }
         };
+
+       function parameterLength(x,y,z){
+           if(arguments.length != 3){
+               alert("参数个数不为3");
+           }
+       }
+
+        //函数可以拥有属性
+        function_properties.count = 0;
+
+        function function_properties(){
+            alert(function_properties.count++);
+        }
 
     </script>
 </head>
