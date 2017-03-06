@@ -28,24 +28,37 @@
        o.x = 3;
    }
 
+   function Parent(){
+       this.title = "parent";
+   }
+
 window.onload = function (){
     var ttt = {x:1,y:2};
     var ggg = {x:1,y:2};
 
-    change(ttt);
-    console.log("ttt.x = " + ttt.x);
+    //change(ttt);
+    //console.log("ttt.x = " + ttt.x);
 
-    change(inherit(ggg));
-    console.log("ggg.x = " + ggg.x);
+    //change(inherit(ggg));
+    //console.log("ggg.x = " + ggg.x);
 
+    var child_ggg = inherit(ggg);
+    console.log("child_ggg.prototype = " + child_ggg.prototype);
+    console.log("child_ggg.typeof = " + typeof(child_ggg));
+    console.log("child_ggg instanceof ggg = " + (child_ggg instanceof Object));
 
+    var parent = new Parent();
+    var child = inherit(parent);
+    child.title = "child";
+    console.log("child.prototype = " + child.prototype);
+    console.log("child.typeof = " + typeof(child));
+    console.log("child.title = " + child.title);
+    console.log("parent.title = " + parent.title);
+    console.log("child instanceof Parent = " + (child instanceof Parent));
 
 };
-
-
 </script>
 </head>
 <body>
-
 </body>
 </html>
